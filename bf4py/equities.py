@@ -27,6 +27,22 @@ def equity_details(isin:str):
     return data
 
 
+'''
+The new api seems to be a spring boot (java, tomcat) server. In 2020, it was very easy to use. Since 2021, a few extra headers have to be passed. Here are some examples (they will only work with headers):
+
+https://api.boerse-frankfurt.de/v1/data/price_history?limit=50&offset=0&isin=DE0007236101&mic=XFRA&minDate=2019-03-27&maxDate=2020-03-27
+
+-> high, low, open, close, volume (JSON) (min year: depending on share, maybe 1990)
+
+https://api.boerse-frankfurt.de/v1/data/dividend_information?isin=DE0007236101&limit=50
+
+-> dividends JSON
+
+https://api.boerse-frankfurt.de/v1/data/historical_key_data?isin=DE0007236101&limit=50
+
+-> historical key figures, like total assets or other important balance sheet figures (JSON) (min year: 1999) There are more endpoints, these are only some examples.
+'''
+
 def key_data(isin:str):
     """
     Get key/technical data about specific equity (by ISIN).
